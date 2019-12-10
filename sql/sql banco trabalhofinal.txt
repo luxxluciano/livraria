@@ -1,0 +1,44 @@
+CREATE TABLE funcionarios (
+    idfuncionarios INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR,
+    datacontrata DATE
+);
+
+CREATE TABLE livros (
+    idlivros INTEGER PRIMARY KEY AUTO_INCREMENT,
+    fornecedores_idfornecedores INTEGER,
+    titulo VARCHAR,
+    anopublica SMALLINT,
+    edicao SMALLINT,
+    editora VARCHAR
+);
+
+CREATE TABLE fornecedores (
+    idfornecedores INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR,
+    endereco VARCHAR,
+    cidade VARCHAR,
+    telefone VARCHAR
+);
+
+CREATE TABLE estoques (
+    idestoques INTEGER PRIMARY KEY AUTO_INCREMENT,
+    livros_idlivros INTEGER,
+    funcionarios_idfuncionarios INTEGER,
+    quant_total SMALLINT,
+    quant_recebida SMALLINT,
+    data_atualiza DATE
+);
+
+ 
+ALTER TABLE livros ADD CONSTRAINT FK_livros_2
+    FOREIGN KEY (fornecedores_idfornecedores)
+    REFERENCES fornecedores (idfornecedores);
+ 
+ALTER TABLE estoques ADD CONSTRAINT FK_estoques_2
+    FOREIGN KEY (livros_idlivros)
+    REFERENCES livros (idlivros);
+ 
+ALTER TABLE estoques ADD CONSTRAINT FK_estoques_2
+    FOREIGN KEY (funcionarios_idfuncionarios)
+    REFERENCES funcionarios (idfuncionarios);
