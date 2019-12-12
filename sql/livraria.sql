@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 08:42 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: 11-Dez-2019 às 22:19
+-- Versão do servidor: 10.1.36-MariaDB
+-- versão do PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estoques`
+-- Estrutura da tabela `estoques`
 --
 
 CREATE TABLE `estoques` (
@@ -38,18 +38,19 @@ CREATE TABLE `estoques` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `estoques`
+-- Extraindo dados da tabela `estoques`
 --
 
 INSERT INTO `estoques` (`idestoques`, `livros_idlivros`, `funcionarios_idfuncionarios`, `quant_total`, `quant_recebida`, `data_atualiza`) VALUES
 (4, 5, 1, 10, 5, '2019-07-11'),
 (5, 1, 2, 29, 15, '2018-12-06'),
-(6, 3, 5, 10, 10, '2019-12-09');
+(6, 3, 5, 10, 10, '2019-12-09'),
+(7, 6, 5, 30, 5, '2019-12-11');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fornecedores`
+-- Estrutura da tabela `fornecedores`
 --
 
 CREATE TABLE `fornecedores` (
@@ -61,7 +62,7 @@ CREATE TABLE `fornecedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `fornecedores`
+-- Extraindo dados da tabela `fornecedores`
 --
 
 INSERT INTO `fornecedores` (`idfornecedores`, `nome`, `endereco`, `cidade`, `telefone`) VALUES
@@ -73,7 +74,7 @@ INSERT INTO `fornecedores` (`idfornecedores`, `nome`, `endereco`, `cidade`, `tel
 -- --------------------------------------------------------
 
 --
--- Table structure for table `funcionarios`
+-- Estrutura da tabela `funcionarios`
 --
 
 CREATE TABLE `funcionarios` (
@@ -83,18 +84,19 @@ CREATE TABLE `funcionarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `funcionarios`
+-- Extraindo dados da tabela `funcionarios`
 --
 
 INSERT INTO `funcionarios` (`idfuncionarios`, `nome`, `datacontrata`) VALUES
 (1, 'Tulio Gomes Freitas', '0000-00-00'),
 (2, 'Ramires', '2019-06-12'),
-(5, 'Tiazinha', '2019-09-18');
+(5, 'Tiazinha', '2019-09-18'),
+(7, 'Mario de Souza', '2019-12-08');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `livros`
+-- Estrutura da tabela `livros`
 --
 
 CREATE TABLE `livros` (
@@ -107,13 +109,14 @@ CREATE TABLE `livros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `livros`
+-- Extraindo dados da tabela `livros`
 --
 
 INSERT INTO `livros` (`idlivros`, `fornecedores_idfornecedores`, `titulo`, `anopublica`, `edicao`, `editora`) VALUES
 (1, 3, 'A Ferro e Fogo 2', 1988, 1, 'L&PM'),
-(3, 2, 'O Pequeno PrÃ­ncipe 2', 2019, 5, 'Centauro'),
-(5, 4, 'A RevoluÃ§Ã£o dos Bichos', 1965, 3, 'L&PM');
+(3, 3, 'O Pequeno PrÃ­ncipe 2', 2016, 5, 'Centauro'),
+(5, 4, 'A RevoluÃ§Ã£o dos Bichos', 1965, 3, 'L&PM'),
+(6, 2, 'O Assassinato de Baker', 2019, 12, 'Letras');
 
 --
 -- Indexes for dumped tables
@@ -154,7 +157,7 @@ ALTER TABLE `livros`
 -- AUTO_INCREMENT for table `estoques`
 --
 ALTER TABLE `estoques`
-  MODIFY `idestoques` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idestoques` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `fornecedores`
@@ -166,27 +169,27 @@ ALTER TABLE `fornecedores`
 -- AUTO_INCREMENT for table `funcionarios`
 --
 ALTER TABLE `funcionarios`
-  MODIFY `idfuncionarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idfuncionarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `livros`
 --
 ALTER TABLE `livros`
-  MODIFY `idlivros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idlivros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `estoques`
+-- Limitadores para a tabela `estoques`
 --
 ALTER TABLE `estoques`
   ADD CONSTRAINT `FK_estoques_1` FOREIGN KEY (`funcionarios_idfuncionarios`) REFERENCES `funcionarios` (`idfuncionarios`),
   ADD CONSTRAINT `FK_estoques_2` FOREIGN KEY (`livros_idlivros`) REFERENCES `livros` (`idlivros`);
 
 --
--- Constraints for table `livros`
+-- Limitadores para a tabela `livros`
 --
 ALTER TABLE `livros`
   ADD CONSTRAINT `FK_livros_2` FOREIGN KEY (`fornecedores_idfornecedores`) REFERENCES `fornecedores` (`idfornecedores`);
