@@ -46,9 +46,11 @@ if($pesquisou)
 			echo '<center> <table>';
 			echo '<th>Título</th>';
 			echo '<th>Funcionário</th>';
+			echo '<th>ID Funcionário</th>';
             echo '<tr align="center">';
             echo '<td>'.$estoque['titulo'].'</td>';
-            echo '<td>'.$estoque['nome'].'</td>';
+			echo '<td>'.$estoque['nome'].'</td>';
+			echo '<td>'.$estoque['idfuncionarios'].'</td>';
 			echo '</tr>';
 
 			echo '</table> </center>';
