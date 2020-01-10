@@ -1,4 +1,14 @@
 <?php
+include 'includes/header.inc.php';
+?>
+
+</br>
+<center> <table>
+<th>Pesquisando Livros</th>
+</table </center>
+</br>
+
+<?php
 $id=$_GET['id'];
 require("conecta.inc.php");
 $pesquisou=false;
@@ -33,17 +43,28 @@ else
 if($pesquisou)
     if($sql->rowCount() > 0){
         foreach($sql->fetchAll() as $livro){
+			echo '<center> <table>';
+			echo '<th>Fornecedor</th>';
+			echo '<th>Título</th>';
+			echo '<th>Ano Publicação</th>';
+			echo '<th>Editora</th>';
             echo '<tr align="center">';
             echo '<td>'.$livro['nome'].'</td>';
             echo '<td>'.$livro['titulo'].'</td>';
             echo '<td>'.$livro['anopublica'].'</td>';
             echo '<td>'.$livro['editora'].'</td>';
-            echo '</tr>';
+			echo '</tr>';
+			echo '</table> </center>';
     }
 }else{
     echo 'Nenhum registro encontrado!';
 }
 
 ?>
-<p>
-<a href="pesquisar.php">Voltar</a>
+</br>
+<center> <p>
+<button type="button"><a style="color:black" href="pesquisar.php">Nova pesquisa</a></button>
+</center>
+<?php
+include 'includes/footer.inc.php';
+?>
