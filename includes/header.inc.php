@@ -9,10 +9,9 @@
 </head>
 <body>
     <div class="topo">
-
         <div class="topoint">
-           <h1> Livraria Classe A </h1>
-           <a href="index.php"><h4><-home</h4></a>
+        <a href="index.php"><h1> Livraria Classe A </h1></a>
+        <h3>Sistema de cadastro</h3>
         </div>
     </div>
 

@@ -5,7 +5,7 @@ if(isset($_GET['idestoques']) && empty($_GET['idestoques'] == false)){
     $idestoques = addslashes($_GET['idestoques']);
 
     $sql = "DELETE FROM estoques WHERE idestoques = '$idestoques'";
-    $pdo->query($sql);
+    $sql = $pdo->query($sql);
 
     header("Location: estoques.php");
 
