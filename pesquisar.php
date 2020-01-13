@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 ?>
 
 <?php
@@ -22,9 +22,8 @@ include 'includes/header.inc.php';
                 
                     <form action="pesqLivros.php" method="get">
                     Fornecedor: <select name="fornecedor" id="fornecedor" required>
+                    
                     <?php
-                    require("conecta.inc.php");
-
                     $sql = "SELECT * FROM fornecedores ORDER BY nome";
                     $sql = $pdo->query($sql);
                     foreach ($sql->fetchAll() as $linha) {
@@ -34,6 +33,7 @@ include 'includes/header.inc.php';
                         print("<option value='$IdFornecedor'>$NomeFornecedor</option>");
                     }
                     ?>
+                    
                     <input type="hidden" name="id" value="1">
                     &nbsp;&nbsp;<input type="submit" value="Pesquisar Fornecedor">
                 </form>
@@ -47,9 +47,8 @@ include 'includes/header.inc.php';
 
                 <form action="pesqEstoque.php" method="get">
                 Funcionário: <select name="funcionario" id="funcionario" required>
+                
                 <?php
-                require("conecta.inc.php");
-
                 $sql = "SELECT * FROM funcionarios ORDER BY nome";
                 $sql = $pdo->query($sql);
                 foreach($sql->fetchAll() as $linha) {

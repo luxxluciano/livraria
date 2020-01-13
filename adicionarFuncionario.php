@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 
 if (isset($_POST['nome']) && empty($_POST['nome'] == false)){
     $nome = addslashes($_POST['nome']);

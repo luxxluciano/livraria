@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 
 if(isset($_GET['idestoques']) && empty($_GET['idestoques'] == false)){
     $idestoques = addslashes($_GET['idestoques']);

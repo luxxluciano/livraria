@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 
 if (
     isset($_POST['titulo']) && empty($_POST['titulo'] == false) &&
@@ -40,7 +40,6 @@ include 'includes/header.inc.php';
             <td>
                 <select name="fornecedor" id="fornecedor" required>
                     <?php
-                    require("conecta.inc.php");
 
                     $sql = "SELECT * FROM fornecedores ORDER BY nome";
                     $sql = $pdo->query($sql);

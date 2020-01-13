@@ -1,4 +1,8 @@
 <?php
+require 'includes/conecta.inc.php';
+?>
+
+<?php
 include 'includes/header.inc.php';
 ?>
 
@@ -10,7 +14,6 @@ include 'includes/header.inc.php';
 
 <?php
 $id=$_GET['id'];
-require("conecta.inc.php");
 $pesquisou=false;
 if ($id==3)
 {

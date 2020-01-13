@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 
 if (
     isset($_POST['quant_total']) && is_numeric($_POST['quant_total'] ) &&
@@ -37,9 +37,8 @@ include 'includes/header.inc.php';
             </td>
             <td>
                 <select name="livro" id="livro" required>
+                    
                     <?php
-                    require("conecta.inc.php");
-
                     $sql = "SELECT * FROM livros ORDER BY titulo";
                     $sql = $pdo->query($sql);
                     foreach($sql->fetchAll() as $linha) {
@@ -57,9 +56,8 @@ include 'includes/header.inc.php';
             </td>
             <td>
                 <select name="funcionario" id="funcionario" required>
+                    
                     <?php
-                    require("conecta.inc.php");
-
                     $sql = "SELECT * FROM funcionarios ORDER BY nome";
                     $sql = $pdo->query($sql);
                     foreach($sql->fetchAll() as $linha) {

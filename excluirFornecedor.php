@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 
 if(isset($_GET['idfornecedores']) && empty($_GET['idfornecedores'] == false)){
     $idfornecedores = addslashes($_GET['idfornecedores']);

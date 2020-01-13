@@ -1,5 +1,5 @@
 <?php
-require 'conecta.inc.php';
+require 'includes/conecta.inc.php';
 
 $idfuncionarios=0;
 
@@ -9,7 +9,7 @@ if(isset($_GET['idfuncionarios']) && empty($_GET['idfuncionarios'] == false)){
 
 if(isset($_POST['nome']) && empty($_POST['nome'] == false)){
     $nome = addslashes($_POST['nome']);
-    $data = $_POST['datacontrata'];
+    $data = addslashes($_POST['datacontrata']);
 
     $sql = "UPDATE funcionarios SET nome = '$nome', datacontrata = '$data' WHERE idfuncionarios = '$idfuncionarios'";
     $pdo->query($sql);
@@ -48,7 +48,7 @@ include 'includes/header.inc.php';
                 Data de Contratação:
             </td>
             <td>
-                <input type="date" name="data" id="data" value="<?php echo $dado['datacontrata']; ?>" required>
+                <input type="date" name="datacontrata" id="data" value="<?php echo $dado['datacontrata']; ?>" required>
             </td>
         </tr>
         <tr>
