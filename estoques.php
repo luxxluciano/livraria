@@ -6,7 +6,7 @@ require 'conecta.inc.php';
 include 'includes/header.inc.php';
 ?>
 
-<a href="adicionarEstoque.php">Cadastrar Novo Estoque</a>
+</br>
 <center><table border="1" width="80%">
 <tr>
 <th colspan="7" align="center">Estoques Cadastrados</th>
@@ -41,6 +41,11 @@ if($sql->rowCount() > 0){
 ?>
 
 </table></center>
+
+</br>
+<center> <p>
+<button type="button"><a href="adicionarEstoque.php">Cadastrar Novo Estoque</a></button>
+</center>
 
 <?php
 include 'includes/footer.inc.php';
